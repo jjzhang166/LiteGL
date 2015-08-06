@@ -27,6 +27,16 @@ void GLCube::SetSize(double size)
     m_want_compile = true;
 }
 
+void GLCube::SetPosition(float x, float y, float z)
+{
+    m_position.SetValue(x, y, z);
+}
+
+void GLCube::SetRotateMid(float x, float y, float z)
+{
+    m_rotate_origin.SetValue(x, y, z);
+}
+
 void GLCube::SetColor(int index, TG::Color32 &color)
 {
     if (index >= 0 && index <= 5) {
@@ -63,30 +73,44 @@ void GLCube::Draw()
     const GLfloat *p = *m_matrix.m;
 
     glPushMatrix();
-    glMultMatrixf(p);
-    glCallList(m_list);
+    {
+        glTranslatef(m_position.m_x, m_position.m_y, m_position.m_z);
+        glMultMatrixf(p);
+        glCallList(m_list);
+
+    }
     glPopMatrix();
 }
 
-void GLCube::RotateX(float ang, float x, float y, float z)
+void GLCube::TranOrigin()
 {
-    m_matrix.Translate(-x, -y, -z);
+    m_matrix.Translate(-m_rotate_origin.m_x, -m_rotate_origin.m_y, -m_rotate_origin.m_y);
+}
+
+void GLCube::RetnOrigin()
+{
+    m_matrix.Translate(m_rotate_origin.m_x, m_rotate_origin.m_y, m_rotate_origin.m_y);
+}
+
+void GLCube::RotateX(float ang)
+{
+    TranOrigin();
     m_matrix.RotateX(ang);
-    m_matrix.Translate(x, y, z);
+    RetnOrigin();
 }
 
-void GLCube::RotateY(float ang, float x, float y, float z)
+void GLCube::RotateY(float ang)
 {
-    m_matrix.Translate(-x, -y, -z);
+    TranOrigin();
     m_matrix.RotateY(ang);
-    m_matrix.Translate(x, y, z);
+    RetnOrigin();
 }
 
-void GLCube::RotateZ(float ang, float x, float y, float z)
+void GLCube::RotateZ(float ang)
 {
-    m_matrix.Translate(-x, -y, -z);
+    TranOrigin();
     m_matrix.RotateZ(ang);
-    m_matrix.Translate(x, y, z);
+    RetnOrigin();
 }
 
 void GLCube::SetDrawColor(int i)

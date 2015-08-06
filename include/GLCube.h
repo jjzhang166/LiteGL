@@ -13,7 +13,13 @@ public:
     ~GLCube(void);
     
     void Init();
+
     void SetSize(double size);
+    void SetPosition(float x, float y, float z);
+
+    //设置绕哪个点进行旋转
+    void SetRotateMid(float x, float y, float z);
+
     void SetColor(int index, TG::Color32 &color);
     void SetColor(TG::Color32 &c0, TG::Color32 &c1, TG::Color32 &c2,
         TG::Color32 &c3, TG::Color32 &c4, TG::Color32 &c5);
@@ -21,13 +27,15 @@ public:
 
     void Draw();
 
-    void RotateX(float ang, float x, float y, float z);
-    void RotateY(float ang, float x, float y, float z);
-    void RotateZ(float ang, float x, float y, float z);
+    void RotateX(float ang);
+    void RotateY(float ang);
+    void RotateZ(float ang);
 
 private:
     void Compile();
     void SetDrawColor(int i);
+    void TranOrigin();
+    void RetnOrigin();
 
 private:
     GLObjStyle m_obj_style;
@@ -38,4 +46,7 @@ private:
     bool m_want_compile;
 
     Matrix3d m_matrix;
+
+    Point3dFloat m_position;
+    Point3dFloat m_rotate_origin;
 };
