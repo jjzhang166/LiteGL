@@ -94,6 +94,10 @@ LRESULT GLForm::WndProc(UINT message, WPARAM wp, LPARAM lp)
             //printf("kill_focues\n");
             break;
 
+        case WM_TIMER:
+            OnTimer(wp);
+            break;
+
         case WM_SIZE:
             OnSize(x, y);
             m_gl_env->WinSizeChanged(x, y);
@@ -340,6 +344,16 @@ int GLForm::Height() const
     return rect.bottom;
 }
 
+void GLForm::SetTimer(int id, unsigned int elapse)
+{
+    ::SetTimer(m_hwnd, id, elapse, NULL);
+}
+
+void GLForm::KillTimer(int id)
+{
+    ::KillTimer(m_hwnd, id);
+}
+
 void GLForm::WinClose()
 {
     delete m_gl_env;
@@ -353,6 +367,11 @@ void GLForm::OnDraw()
 void GLForm::OnSize(int cx, int cy)
 {
 
+}
+
+void GLForm::OnTimer(int id)
+{
+    
 }
 
 void GLForm::OnCreate()

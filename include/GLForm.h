@@ -104,6 +104,9 @@ public:
 
     int Width() const;
     int Height() const;
+
+    void SetTimer(int id, unsigned int elapse);
+    void KillTimer(int id);
    
 
 protected:
@@ -114,6 +117,8 @@ protected:
     virtual void OnClose();
 
     virtual void OnSize(int cx, int cy);
+
+    virtual void OnTimer(int id);
 
     virtual void OnKeyDown(GLKeyEventArgsPtr key_args);
     virtual void OnMouseMove(GLMouseEventArgsPtr args);

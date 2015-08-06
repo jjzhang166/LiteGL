@@ -2,6 +2,7 @@
 
 #include <Windows.h>
 #include <gl/GL.h>
+#include <boost/shared_ptr.hpp>
 #include "GLUtility.h"
 #include "Matrix3d.h"
 
@@ -23,19 +24,20 @@ public:
     void SetColor(int index, TG::Color32 &color);
     void SetColor(TG::Color32 &c0, TG::Color32 &c1, TG::Color32 &c2,
         TG::Color32 &c3, TG::Color32 &c4, TG::Color32 &c5);
+    void SetAllColor(TG::Color32 &color);
     void SetObjStyle(GLObjStyle style);
 
     void Draw();
 
-    void RotateX(float ang);
-    void RotateY(float ang);
-    void RotateZ(float ang);
+    void RotateX(float ang, float x, float y, float z);
+    void RotateY(float ang, float x, float y, float z);
+    void RotateZ(float ang, float x, float y, float z);
 
 private:
     void Compile();
     void SetDrawColor(int i);
-    void TranOrigin();
-    void RetnOrigin();
+    void TranOrigin(float x, float y, float z);
+    void RetnOrigin(float x, float y, float z);
 
 private:
     GLObjStyle m_obj_style;
@@ -50,3 +52,5 @@ private:
     Point3dFloat m_position;
     Point3dFloat m_rotate_origin;
 };
+
+typedef boost::shared_ptr<GLCube> GLCubePtr;
