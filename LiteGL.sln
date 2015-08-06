@@ -3,6 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LiteGL", "LiteGL.vcproj", "{FA0B87F5-223C-48A0-B5FE-4119672ABAA6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cube", "examples\cube\cube.vcproj", "{C2808044-3C7C-426C-B861-E5F768EF2950}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FA0B87F5-223C-48A0-B5FE-4119672ABAA6} = {FA0B87F5-223C-48A0-B5FE-4119672ABAA6}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestOpenGL", "examples\texture2d\TestOpenGL.vcproj", "{5802E963-2FC1-45BE-94B1-C20F733F7C89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +20,14 @@ Global
 		{FA0B87F5-223C-48A0-B5FE-4119672ABAA6}.Debug|Win32.Build.0 = Debug|Win32
 		{FA0B87F5-223C-48A0-B5FE-4119672ABAA6}.Release|Win32.ActiveCfg = Release|Win32
 		{FA0B87F5-223C-48A0-B5FE-4119672ABAA6}.Release|Win32.Build.0 = Release|Win32
+		{C2808044-3C7C-426C-B861-E5F768EF2950}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C2808044-3C7C-426C-B861-E5F768EF2950}.Debug|Win32.Build.0 = Debug|Win32
+		{C2808044-3C7C-426C-B861-E5F768EF2950}.Release|Win32.ActiveCfg = Release|Win32
+		{C2808044-3C7C-426C-B861-E5F768EF2950}.Release|Win32.Build.0 = Release|Win32
+		{5802E963-2FC1-45BE-94B1-C20F733F7C89}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5802E963-2FC1-45BE-94B1-C20F733F7C89}.Debug|Win32.Build.0 = Debug|Win32
+		{5802E963-2FC1-45BE-94B1-C20F733F7C89}.Release|Win32.ActiveCfg = Release|Win32
+		{5802E963-2FC1-45BE-94B1-C20F733F7C89}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
