@@ -1,30 +1,34 @@
 #pragma once
 #include "GLForm.h"
-#include "GLWidget.h"
+#include "GLCube.h"
 #include "LnUI/LDragAssist.h"
 
-class DemoForm : public GLForm
+class PickForm : public GLForm
 {
 public:
-    DemoForm(HINSTANCE hin);
-    ~DemoForm(void);
+    PickForm(HINSTANCE hin);
+    ~PickForm(void);
 
-protected:
     virtual void OnCreate();
+    virtual void OnSize(int cx, int cy);
     virtual void OnDraw();
 
-    virtual void OnSize(int cx, int cy);
     virtual void OnKeyDown(GLKeyEventArgsPtr key_args);
-
     virtual void OnMouseDown(GLMouseEventArgsPtr args);
     virtual void OnMouseMove(GLMouseEventArgsPtr args);
     virtual void OnMouseUp(GLMouseEventArgsPtr args);
 
-
 private:
-    GLWidget m_img1;
-    GLWidget m_img2;
+    float m_rot_x;
+    float m_rot_y;
+    float m_rot_z;
+
+    float m_look_z;
 
     ln::LDragAssist m_drag;
+    float m_drag_x;
+    float m_drag_y;
 
+    GLCube m_cube1;
+    GLCube m_cube2;
 };

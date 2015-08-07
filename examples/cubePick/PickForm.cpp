@@ -1,7 +1,7 @@
-#include "CubeForm.h"
+#include "PickForm.h"
 #include "GLGeometry.h"
 
-CubeForm::CubeForm(HINSTANCE hin)
+PickForm::PickForm(HINSTANCE hin)
 : GLForm(hin),
 m_rot_x(0),
 m_rot_y(0),
@@ -14,11 +14,11 @@ m_look_z(0)
     glShadeModel(GL_FLAT);
 }
 
-CubeForm::~CubeForm(void)
+PickForm::~PickForm(void)
 {
 }
 
-void CubeForm::OnCreate()
+void PickForm::OnCreate()
 {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_DITHER);
@@ -35,13 +35,19 @@ void CubeForm::OnCreate()
         TG::Color32(255, 255, 0), TG::Color32(255, 0, 255), TG::Color32(0, 255, 255));
 }
 
-void CubeForm::OnSize(int w, int h)
+void PickForm::OnSize(int w, int h)
 {
     printf("OnSize: %d, %d\n", w, h);
+
+    glViewport(0, 0, w, h); 
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glFrustum(-1.0, 1.0, -1.0, 1.0, 1.5, 20.0);
+    glMatrixMode(GL_MODELVIEW);
 }
 
 float s_x_step;
-void CubeForm::OnDraw()
+void PickForm::OnDraw()
 {
     glClearColor(0.5, 0.5, 0.5, 1.0);
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
@@ -72,7 +78,7 @@ void CubeForm::OnDraw()
     glFlush();
 }
 
-void CubeForm::OnKeyDown(GLKeyEventArgsPtr key_args)
+void PickForm::OnKeyDown(GLKeyEventArgsPtr key_args)
 {
     int one = 10;
     switch (key_args->m_vk_code) {
@@ -109,7 +115,7 @@ void CubeForm::OnKeyDown(GLKeyEventArgsPtr key_args)
     Repaint();
 }
 
-void CubeForm::OnMouseDown(GLMouseEventArgsPtr args)
+void PickForm::OnMouseDown(GLMouseEventArgsPtr args)
 {
     if (args->IsLeft()) {
         m_drag_x = 0;
@@ -119,7 +125,7 @@ void CubeForm::OnMouseDown(GLMouseEventArgsPtr args)
     }
 }
 
-void CubeForm::OnMouseMove(GLMouseEventArgsPtr args)
+void PickForm::OnMouseMove(GLMouseEventArgsPtr args)
 {
     if (m_drag.IsMouseDown()) {
         TG::PointInt p = m_drag.MouseMove(args->m_location);
@@ -137,7 +143,7 @@ void CubeForm::OnMouseMove(GLMouseEventArgsPtr args)
     }
 }
 
-void CubeForm::OnMouseUp(GLMouseEventArgsPtr args)
+void PickForm::OnMouseUp(GLMouseEventArgsPtr args)
 {
     m_drag.MouseUp();
 }

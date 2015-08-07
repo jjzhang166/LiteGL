@@ -1,5 +1,7 @@
 #include "GLCube.h"
 
+#define BUFSIZE 512
+
 GLCube::GLCube(void)
 : m_obj_style(GLObjQuad),
 m_size(2),
@@ -178,4 +180,22 @@ void GLCube::Compile()
     }
 
     glEndList();
+}
+
+int GLCube::Pick(int x, int y)
+{
+    GLint viewport[4];
+    GLuint selectBuf[BUFSIZE];
+
+    glGetIntegerv(GL_VIEWPORT, viewport);
+    glSelectBuffer(BUFSIZE, selectBuf);
+    glRenderMode(GL_SELECT);
+
+    glInitNames();
+    glPushName(0);
+
+    gluPickMatrix((GLdouble) x,(GLdouble)(viewport[3] - y), 
+        0.1, 0.1, viewport);
+
+    
 }

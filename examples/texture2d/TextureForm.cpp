@@ -1,16 +1,16 @@
-#include "DemoForm.h"
+#include "TextureForm.h"
 #include "GLUtility.h"
 
-DemoForm::DemoForm(HINSTANCE hin)
+TextureForm::TextureForm(HINSTANCE hin)
 : GLForm(hin)
 {
 }
 
-DemoForm::~DemoForm(void)
+TextureForm::~TextureForm(void)
 {
 }
 
-void DemoForm::OnCreate()
+void TextureForm::OnCreate()
 {
     {
         int width, height;
@@ -29,7 +29,7 @@ void DemoForm::OnCreate()
 
 }
 
-void DemoForm::OnDraw()
+void TextureForm::OnDraw()
 {
     glClearColor(0.5, 0.5, 0.5, 1.0);
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
@@ -40,7 +40,7 @@ void DemoForm::OnDraw()
     m_img2.Draw();
 }
 
-void DemoForm::OnSize(int w, int h)
+void TextureForm::OnSize(int w, int h)
 {
     m_img1.WinSize(w, h);
     m_img2.WinSize(w, h);
@@ -52,51 +52,48 @@ void DemoForm::OnSize(int w, int h)
     printf("OnSize: %d, %d\n", w, h);
 }
 
-void DemoForm::OnKeyDown(GLKeyEventArgsPtr key_args)
+void TextureForm::OnKeyDown(GLKeyEventArgsPtr key_args)
 {
     int left = m_img1.Left();
     int top = m_img1.Top();
     switch(key_args->m_vk_code) {
         case VK_LEFT:
             m_img1.SetPos(left-1, top);
-            Draw3d();
             break;
 
         case VK_RIGHT:
             m_img1.SetPos(left+1, top);
-            Draw3d();
             break;
 
         case VK_UP:
             m_img1.SetPos(left, top-1);
-            Draw3d();
             break;
 
         case VK_DOWN:
             m_img1.SetPos(left, top+1);
-            Draw3d();
             break;
     }
+    Repaint();
    
 }
 
-void DemoForm::OnMouseDown(GLMouseEventArgsPtr args)
+void TextureForm::OnMouseDown(GLMouseEventArgsPtr args)
 {
 
     m_drag.SetStartPoint(m_img1.Left(), m_img1.Top());
     m_drag.MouseDown(args->m_location);
 }
 
-void DemoForm::OnMouseMove(GLMouseEventArgsPtr args)
+void TextureForm::OnMouseMove(GLMouseEventArgsPtr args)
 {
     if (m_drag.IsMouseDown()) {
         TG::PointInt p = m_drag.MouseMove(args->m_location);
         m_img1.SetPos(p.m_x, p.m_y);
-        Draw3d();
+        Repaint();
     }
 }
 
-void DemoForm::OnMouseUp(GLMouseEventArgsPtr args)
+void TextureForm::OnMouseUp(GLMouseEventArgsPtr args)
 {
 
     m_drag.MouseUp();

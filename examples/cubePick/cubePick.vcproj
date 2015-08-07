@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="cube"
-	ProjectGUID="{C2808044-3C7C-426C-B861-E5F768EF2950}"
+	Name="cubePick"
+	ProjectGUID="{54C0C419-9017-4048-A73C-65BD346E74F6}"
 	RootNamespace="cube"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
@@ -175,11 +175,11 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\CubeForm.cpp"
+				RelativePath=".\mainPick.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\MainCube.cpp"
+				RelativePath=".\PickForm.cpp"
 				>
 			</File>
 		</Filter>
@@ -189,7 +189,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\CubeForm.h"
+				RelativePath=".\PickForm.h"
 				>
 			</File>
 		</Filter>

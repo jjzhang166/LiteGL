@@ -14,6 +14,7 @@ public:
     ~GLCube(void);
     
     void Init();
+    void Draw();
 
     void SetObjStyle(GLObjStyle style);
 
@@ -28,11 +29,12 @@ public:
         TG::Color32 &c3, TG::Color32 &c4, TG::Color32 &c5);
     void SetAllColor(TG::Color32 &color);
 
-    void Draw();
-
     void RotateX(float ang, float x, float y, float z);
     void RotateY(float ang, float x, float y, float z);
     void RotateZ(float ang, float x, float y, float z);
+
+    //如果拾取到面则返回[0,5],否则返回-1
+    int Pick(int x, int y);
 
 protected:
     virtual void Compile();
