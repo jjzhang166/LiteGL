@@ -110,7 +110,7 @@ public:
    
 
 protected:
-    void Draw3d();
+    void Repaint();
 
     virtual void OnDraw();
     virtual void OnCreate();

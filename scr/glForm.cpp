@@ -70,7 +70,7 @@ LRESULT GLForm::WndProc(UINT message, WPARAM wp, LPARAM lp)
 
                 EndPaint(m_hwnd, &ps);
 
-                Draw3d();
+                Repaint();
 
                 break;
             }
@@ -228,7 +228,7 @@ LRESULT GLForm::WndProc(UINT message, WPARAM wp, LPARAM lp)
     return 0;
 }
 
-void GLForm::Draw3d()
+void GLForm::Repaint()
 {
     OnDraw();
     m_gl_env->Draw();
@@ -244,7 +244,7 @@ void GLForm::Show()
     ::UpdateWindow(m_hwnd);
 
     //OnCreate();
-    Draw3d();
+    Repaint();
 }
 
 int GLForm::RegesterForm()

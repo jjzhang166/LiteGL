@@ -125,7 +125,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\lib\LiteGL_mt.lib"
+				OutputFile="lib\LiteGL_mt.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
