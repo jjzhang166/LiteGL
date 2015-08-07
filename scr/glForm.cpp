@@ -1,6 +1,7 @@
 #include "GLForm.h"
-#include "GLEnvironment.h"
 #include <WindowsX.h>
+#include "GLEnvironment.h"
+#include "LnWin/LExplorer.h"
 
 static GLForm* s_create_form = NULL;
 
@@ -239,6 +240,11 @@ void GLForm::Show()
     if (m_hwnd == NULL) {
         CreateForm();
     }
+
+    int cx, cy;
+    ln::GetScreenSize(&cx, &cy);
+    ::SetWindowPos(m_hwnd, 0, (cx-Width())/2, (cy-Height())/2, 0, 0, SWP_NOSIZE);
+
 
     ::ShowWindow(m_hwnd, SW_SHOW);
     ::UpdateWindow(m_hwnd);
