@@ -15,6 +15,8 @@ public:
     
     void Init();
 
+    void SetObjStyle(GLObjStyle style);
+
     void SetSize(double size);
     void SetPosition(float x, float y, float z);
 
@@ -25,7 +27,6 @@ public:
     void SetColor(TG::Color32 &c0, TG::Color32 &c1, TG::Color32 &c2,
         TG::Color32 &c3, TG::Color32 &c4, TG::Color32 &c5);
     void SetAllColor(TG::Color32 &color);
-    void SetObjStyle(GLObjStyle style);
 
     void Draw();
 
@@ -33,13 +34,14 @@ public:
     void RotateY(float ang, float x, float y, float z);
     void RotateZ(float ang, float x, float y, float z);
 
-private:
-    void Compile();
+protected:
+    virtual void Compile();
+
     void SetDrawColor(int i);
     void TranOrigin(float x, float y, float z);
     void RetnOrigin(float x, float y, float z);
 
-private:
+protected:
     GLObjStyle m_obj_style;
     GLfloat m_size;
     TG::Color32 m_colors[6];

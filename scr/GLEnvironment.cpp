@@ -73,11 +73,12 @@ void GLEnvironment::WinSizeChanged(int w, int h)
         glViewport(0, 0, w, h);
 
     } else if (m_app_style == GLApp3D) {
-        glViewport(0, 0, w, h); 
+        //TODO:3D的视图得app自己来维护
+       /* glViewport(0, 0, w, h); 
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         glFrustum(-1.0, 1.0, -1.0, 1.0, 1.5, 20.0);
-        glMatrixMode(GL_MODELVIEW);
+        glMatrixMode(GL_MODELVIEW);*/
     }
 }
 

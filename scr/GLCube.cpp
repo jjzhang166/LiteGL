@@ -83,6 +83,7 @@ void GLCube::Draw()
         Compile();
         m_want_compile = false;
     }
+    //因为m_matrix.m是二维数组，相当于二维指针，所以就用*后才能赋值给一维指针
     const GLfloat *p = *m_matrix.m;
 
     glPushMatrix();
@@ -155,29 +156,19 @@ void GLCube::Compile()
             glBegin(gl_style);
             SetDrawColor(0);
             N( 1.0, 0.0, 0.0); V(+,-,+); V(+,-,-); V(+,+,-); V(+,+,+);
-            glEnd();
-
-            glBegin(gl_style);
+           
             SetDrawColor(1);
             N( 0.0, 1.0, 0.0); V(+,+,+); V(+,+,-); V(-,+,-); V(-,+,+); 
-            glEnd();
-
-            glBegin(gl_style);
+         
             SetDrawColor(2);
             N( 0.0, 0.0, 1.0); V(+,+,+); V(-,+,+); V(-,-,+); V(+,-,+); 
-            glEnd();
-
-            glBegin(gl_style);
+            
             SetDrawColor(3);
             N(-1.0, 0.0, 0.0); V(-,-,+); V(-,+,+); V(-,+,-); V(-,-,-); 
-            glEnd();
-
-            glBegin(gl_style);
+           
             SetDrawColor(4);
             N( 0.0,-1.0, 0.0); V(-,-,+); V(-,-,-); V(+,-,-); V(+,-,+); 
-            glEnd();
-
-            glBegin(gl_style);
+           
             SetDrawColor(5);
             N( 0.0, 0.0,-1.0); V(-,-,-); V(-,+,-); V(+,+,-); V(+,-,-); 
             glEnd();
