@@ -9,7 +9,7 @@ m_want_compile(true)
 {
     //默认都是白色
     for (int i = 0; i < 6; ++i) {
-        m_colors[i] = TG::Color32::s_White;
+        m_colors[i] = ln::Color32::s_White;
     }
 }
 
@@ -40,7 +40,7 @@ void GLCube::SetRotateMid(float x, float y, float z)
     m_rotate_origin.SetValue(x, y, z);
 }
 
-void GLCube::SetColor(int index, TG::Color32 &color)
+void GLCube::SetColor(int index, ln::Color32 &color)
 {
     if (index >= 0 && index <= 5) {
         m_colors[index] = color;
@@ -48,8 +48,8 @@ void GLCube::SetColor(int index, TG::Color32 &color)
     m_want_compile = true;
 }
 
-void GLCube::SetColor(TG::Color32 &c0, TG::Color32 &c1, TG::Color32 &c2,
-        TG::Color32 &c3, TG::Color32 &c4, TG::Color32 &c5)
+void GLCube::SetColor(ln::Color32 &c0, ln::Color32 &c1, ln::Color32 &c2,
+        ln::Color32 &c3, ln::Color32 &c4, ln::Color32 &c5)
 {
     m_colors[0] = c0;
     m_colors[1] = c1;
@@ -61,7 +61,7 @@ void GLCube::SetColor(TG::Color32 &c0, TG::Color32 &c1, TG::Color32 &c2,
     m_want_compile = true;
 }
 
-void GLCube::SetAllColor(TG::Color32 &color)
+void GLCube::SetAllColor(ln::Color32 &color)
 {
     m_colors[0] = color;
     m_colors[1] = color;
@@ -198,4 +198,5 @@ int GLCube::Pick(int x, int y)
         0.1, 0.1, viewport);
 
     
+    return 0;
 }

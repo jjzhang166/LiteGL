@@ -3,7 +3,7 @@
 
 bool GLLoadImage(const wchar_t *filename, int *width, int *height, unsigned char *&p_data)
 {
-    TG::TGBitmap image;
+    ln::LBitmap image;
     image.ReadFile(filename);
 
 	*width = image.Width();

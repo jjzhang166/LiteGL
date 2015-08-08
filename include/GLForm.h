@@ -6,7 +6,7 @@
 #include <gl/GL.h>
 #include <gl/GLU.h>
 
-#include "TGBaseType.h"
+#include "LnCore/LTypes.h"
 #include "GLUtility.h"
 
 enum GLMouseButtons
@@ -54,7 +54,7 @@ public:
     int m_delta;
 
     //鼠标所在的位置
-    TG::PointInt m_location;
+    ln::PointInt m_location;
 
     bool m_is_shift_down;
     bool m_is_ctrl_down;

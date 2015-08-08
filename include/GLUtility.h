@@ -1,6 +1,6 @@
 #pragma once
 
-#include "TGBitmap.h"
+#include "LnImg/LBitmap.h"
 #include "LnWin/LString.h"
 
 bool GLLoadImage(const wchar_t *filename, int *width, int *height, unsigned char *&p_data);
@@ -49,7 +49,7 @@ public:
     template<typename T2>
     bool IsEqual(BasePoint3d<T2> &r)
     {
-        if (TG::FloatEque(m_x, r.m_x) && TG::FloatEque(m_y, r.m_y) && TG::FloatEque(m_z, r.m_z)) {
+        if (ln::FloatEque(m_x, r.m_x) && ln::FloatEque(m_y, r.m_y) && ln::FloatEque(m_z, r.m_z)) {
             return true;
         }
         return false;
