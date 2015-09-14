@@ -153,39 +153,39 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\scr\GLCube.cpp"
+				RelativePath=".\src\GLCube.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\scr\GLEnvironment.cpp"
+				RelativePath=".\src\GLEnvironment.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\scr\glew.cpp"
+				RelativePath=".\src\glew.c"
 				>
 			</File>
 			<File
-				RelativePath=".\scr\glForm.cpp"
+				RelativePath=".\src\glForm.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\scr\GLGeometry.cpp"
+				RelativePath=".\src\GLGeometry.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\scr\GLUtility.cpp"
+				RelativePath=".\src\GLUtility.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\scr\GLVertexBuffer.cpp"
+				RelativePath=".\src\GLVertexBuffer.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\scr\GLWidget.cpp"
+				RelativePath=".\src\GLWidget.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\scr\Matrix3d.cpp"
+				RelativePath=".\src\Matrix3d.cpp"
 				>
 			</File>
 		</Filter>
@@ -230,23 +230,7 @@
 				Name="GL"
 				>
 				<File
-					RelativePath=".\include\GL\freeglut.h"
-					>
-				</File>
-				<File
-					RelativePath=".\include\GL\freeglut_ext.h"
-					>
-				</File>
-				<File
-					RelativePath=".\include\GL\freeglut_std.h"
-					>
-				</File>
-				<File
 					RelativePath=".\include\GL\glew.h"
-					>
-				</File>
-				<File
-					RelativePath=".\include\GL\glut.h"
 					>
 				</File>
 				<File

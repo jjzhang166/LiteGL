@@ -90,10 +90,8 @@
 #error glATI.h included before glew.h
 #endif
 
-#include <GL/GL.h>
-
-//#define __gl_h_
-//#define __GL_H__
+#define __gl_h_
+#define __GL_H__
 #define __X_GL_H
 #define __glext_h_
 #define __GLEXT_H_
@@ -165,12 +163,12 @@ typedef _W64 int ptrdiff_t;
 #  if defined(__MINGW32__) || defined(__CYGWIN__)
 #    define GLAPI extern
 #  else
-#    define GLAPI 
+#    define GLAPI WINGDIAPI
 #  endif
 #endif
 
 #ifndef GLAPIENTRY
-#define GLAPIENTRY 
+#define GLAPIENTRY APIENTRY
 #endif
 
 /*
@@ -222,9 +220,9 @@ typedef _W64 int ptrdiff_t;
 
 #endif /* _WIN32 */
 
-//#ifdef __cplusplus
-//extern "C" {
-//#endif
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* ----------------------------- GL_VERSION_1_1 ---------------------------- */
 
@@ -801,7 +799,7 @@ typedef struct __GLsync *GLsync;
 #define GL_COLOR_INDEX12_EXT 0x80E6
 #define GL_COLOR_INDEX16_EXT 0x80E7
 
-/*GLAPI void GLAPIENTRY glAccum (GLenum op, GLfloat value);
+GLAPI void GLAPIENTRY glAccum (GLenum op, GLfloat value);
 GLAPI void GLAPIENTRY glAlphaFunc (GLenum func, GLclampf ref);
 GLAPI GLboolean GLAPIENTRY glAreTexturesResident (GLsizei n, const GLuint *textures, GLboolean *residences);
 GLAPI void GLAPIENTRY glArrayElement (GLint i);
@@ -873,7 +871,7 @@ GLAPI void GLAPIENTRY glDrawPixels (GLsizei width, GLsizei height, GLenum format
 GLAPI void GLAPIENTRY glEdgeFlag (GLboolean flag);
 GLAPI void GLAPIENTRY glEdgeFlagPointer (GLsizei stride, const GLvoid *pointer);
 GLAPI void GLAPIENTRY glEdgeFlagv (const GLboolean *flag);
-//GLAPI void GLAPIENTRY glEnable (GLenum cap);
+GLAPI void GLAPIENTRY glEnable (GLenum cap);
 GLAPI void GLAPIENTRY glEnableClientState (GLenum array);
 GLAPI void GLAPIENTRY glEnd (void);
 GLAPI void GLAPIENTRY glEndList (void);
@@ -975,7 +973,7 @@ GLAPI void GLAPIENTRY glMaterialf (GLenum face, GLenum pname, GLfloat param);
 GLAPI void GLAPIENTRY glMaterialfv (GLenum face, GLenum pname, const GLfloat *params);
 GLAPI void GLAPIENTRY glMateriali (GLenum face, GLenum pname, GLint param);
 GLAPI void GLAPIENTRY glMaterialiv (GLenum face, GLenum pname, const GLint *params);
-//GLAPI void GLAPIENTRY glMatrixMode (GLenum mode);
+GLAPI void GLAPIENTRY glMatrixMode (GLenum mode);
 GLAPI void GLAPIENTRY glMultMatrixd (const GLdouble *m);
 GLAPI void GLAPIENTRY glMultMatrixf (const GLfloat *m);
 GLAPI void GLAPIENTRY glNewList (GLuint list, GLenum mode);
@@ -1137,7 +1135,6 @@ GLAPI void GLAPIENTRY glVertex4s (GLshort x, GLshort y, GLshort z, GLshort w);
 GLAPI void GLAPIENTRY glVertex4sv (const GLshort *v);
 GLAPI void GLAPIENTRY glVertexPointer (GLint size, GLenum type, GLsizei stride, const GLvoid *pointer);
 GLAPI void GLAPIENTRY glViewport (GLint x, GLint y, GLsizei width, GLsizei height);
-*/
 
 #define GLEW_VERSION_1_1 GLEW_GET_VAR(__GLEW_VERSION_1_1)
 
@@ -8368,7 +8365,7 @@ typedef void (GLAPIENTRY * PFNGLTRANSFORMFEEDBACKVARYINGSEXTPROC) (GLuint progra
 #define GL_TEXTURE_COORD_ARRAY_POINTER_EXT 0x8092
 #define GL_EDGE_FLAG_ARRAY_POINTER_EXT 0x8093
 
-/*typedef void (GLAPIENTRY * PFNGLARRAYELEMENTEXTPROC) (GLint i);
+typedef void (GLAPIENTRY * PFNGLARRAYELEMENTEXTPROC) (GLint i);
 typedef void (GLAPIENTRY * PFNGLCOLORPOINTEREXTPROC) (GLint size, GLenum type, GLsizei stride, GLsizei count, const void* pointer);
 typedef void (GLAPIENTRY * PFNGLDRAWARRAYSEXTPROC) (GLenum mode, GLint first, GLsizei count);
 typedef void (GLAPIENTRY * PFNGLEDGEFLAGPOINTEREXTPROC) (GLsizei stride, GLsizei count, const GLboolean* pointer);
@@ -8376,7 +8373,7 @@ typedef void (GLAPIENTRY * PFNGLGETPOINTERVEXTPROC) (GLenum pname, void** params
 typedef void (GLAPIENTRY * PFNGLINDEXPOINTEREXTPROC) (GLenum type, GLsizei stride, GLsizei count, const void* pointer);
 typedef void (GLAPIENTRY * PFNGLNORMALPOINTEREXTPROC) (GLenum type, GLsizei stride, GLsizei count, const void* pointer);
 typedef void (GLAPIENTRY * PFNGLTEXCOORDPOINTEREXTPROC) (GLint size, GLenum type, GLsizei stride, GLsizei count, const void* pointer);
-typedef void (GLAPIENTRY * PFNGLVERTEXPOINTEREXTPROC) (GLint size, GLenum type, GLsizei stride, GLsizei count, const void* pointer);*/
+typedef void (GLAPIENTRY * PFNGLVERTEXPOINTEREXTPROC) (GLint size, GLenum type, GLsizei stride, GLsizei count, const void* pointer);
 
 #define glArrayElementEXT GLEW_GET_FUN(__glewArrayElementEXT)
 #define glColorPointerEXT GLEW_GET_FUN(__glewColorPointerEXT)
@@ -14397,7 +14394,7 @@ GLEWAPI GLboolean glewContextIsSupported (GLEWContext* ctx, const char* name);
 
 #else /* GLEW_MX */
 
- GLenum glewInit ();
+GLEWAPI GLenum glewInit ();
 GLEWAPI GLboolean glewIsSupported (const char* name);
 #define glewIsExtensionSupported(x) glewIsSupported(x)
 
@@ -14411,9 +14408,9 @@ GLEWAPI GLboolean glewGetExtension (const char* name);
 GLEWAPI const GLubyte* glewGetErrorString (GLenum error);
 GLEWAPI const GLubyte* glewGetString (GLenum name);
 
-//#ifdef __cplusplus
-//}
-//#endif
+#ifdef __cplusplus
+}
+#endif
 
 #ifdef GLEW_APIENTRY_DEFINED
 #undef GLEW_APIENTRY_DEFINED

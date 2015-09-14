@@ -1,8 +1,7 @@
+#define GLEW_STATIC
 #include "GL/glew.h"
 #include "TextureForm.h"
-
 #include "GLUtility.h"
-
 
 TextureForm::TextureForm(HINSTANCE hin)
 : GLForm(hin)
@@ -38,6 +37,7 @@ char *textFileRead(char *fn)
 	}
 	return content;
 }
+
 void AddShaderPrograme(void)
 {
     GLuint VShader;			// ¶¥µãshader
@@ -101,13 +101,15 @@ void AddShaderPrograme(void)
     glUniformMatrix3fv(glGetUniformLocation(ShaderPrograme, "jOffset"), 1, false, jOffset);
     float Coff[9] = {-1.0, -1.0, -1.0, -1.0, 8.0, -1.0, -1.0, -1.0, -1.0};
     glUniformMatrix3fv(glGetUniformLocation(ShaderPrograme, "Coff"), 1, false, Coff);
-}
+} 
 
 void TextureForm::OnCreate()
 {
-    printf("before: %d \n", __glewCreateShader);
+    //printf("before: %d \n", __glewCreateShader);
     GLenum err = glewInit();
     printf("after: %d \n", __glewCreateShader);
+    AddShaderPrograme();
+
 
     {
         int width, height;

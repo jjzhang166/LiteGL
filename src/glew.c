@@ -29,17 +29,12 @@
 ** THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include <Windows.h>
-
 #include <GL/glew.h>
 #if defined(_WIN32)
 #  include <GL/wglew.h>
 #elif !defined(__APPLE__) || defined(GLEW_APPLE_GLX)
 #  include <GL/glxew.h>
 #endif
-
-//#include <glew.h>
-#include <gl/GL.h>
 
 /*
  * Define glewGetContext and related helper macros.
@@ -7390,8 +7385,6 @@ static GLboolean _glewInit_GL_WIN_swap_hint (GLEW_CONTEXT_ARG_DEF_INIT)
 #endif /* GL_WIN_swap_hint */
 
 /* ------------------------------------------------------------------------- */
-
-WINGDIAPI const GLubyte * APIENTRY glGetString (GLenum name);
 
 /* 
  * Search for name in the extensions string. Use of strstr()
