@@ -161,6 +161,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\scr\glew.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\scr\glForm.cpp"
 				>
 			</File>
@@ -222,6 +226,38 @@
 				RelativePath=".\include\Matrix3d.h"
 				>
 			</File>
+			<Filter
+				Name="GL"
+				>
+				<File
+					RelativePath=".\include\GL\freeglut.h"
+					>
+				</File>
+				<File
+					RelativePath=".\include\GL\freeglut_ext.h"
+					>
+				</File>
+				<File
+					RelativePath=".\include\GL\freeglut_std.h"
+					>
+				</File>
+				<File
+					RelativePath=".\include\GL\glew.h"
+					>
+				</File>
+				<File
+					RelativePath=".\include\GL\glut.h"
+					>
+				</File>
+				<File
+					RelativePath=".\include\GL\glxew.h"
+					>
+				</File>
+				<File
+					RelativePath=".\include\GL\wglew.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 	</Files>
 	<Globals>

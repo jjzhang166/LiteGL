@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LiteGL", "LiteGL.vcproj", "{FA0B87F5-223C-48A0-B5FE-4119672ABAA6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "texture2d", "examples\texture2d\texture2d.vcproj", "{5802E963-2FC1-45BE-94B1-C20F733F7C89}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FA0B87F5-223C-48A0-B5FE-4119672ABAA6} = {FA0B87F5-223C-48A0-B5FE-4119672ABAA6}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cubePick", "examples\cubePick\cubePick.vcproj", "{54C0C419-9017-4048-A73C-65BD346E74F6}"
 	ProjectSection(ProjectDependencies) = postProject

@@ -61,9 +61,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="opengl32.lib glu32.lib LiteGL_mtd.lib LnWin_mtd.lib gdiplus.lib TGGraphics_mtd.lib jpeg-8c_mtd.lib libpng-1.5.5_mtd.lib zlib-1.2.5_mtd.lib LnCore_mtd.lib LnUI_mtd.lib"
+				AdditionalDependencies="opengl32.lib glu32.lib LiteGL_mtd.lib LnWin_mtd.lib LnImg_mtd.lib gdiplus.lib jpeg-8c_mtd.lib libpng-1.5.5_mtd.lib zlib-1.2.5_mtd.lib LnCore_mtd.lib freeglut_mtd.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="D:\work\TGGraphics\lib;E:\cpp_app\LiteNice\lib;..\..\lib"
+				AdditionalLibraryDirectories="D:\work\TGGraphics\lib;E:\cpp_app\LiteNice\lib;..\..\lib;E:\cpp_app\LiteGL\lib"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"

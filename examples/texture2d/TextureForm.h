@@ -1,7 +1,7 @@
 #pragma once
 #include "GLForm.h"
 #include "GLWidget.h"
-#include "LnUI/LDragAssist.h"
+#include "LnCore/LDragAssist.h"
 
 class TextureForm : public GLForm
 {

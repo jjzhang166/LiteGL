@@ -26,13 +26,13 @@ void PickForm::OnCreate()
 
     m_cube1.Init();
     m_cube1.SetSize(0.5);
-    m_cube1.SetColor(TG::Color32(0, 0, 255), TG::Color32(0, 255, 0), TG::Color32(255, 0, 0), 
-        TG::Color32(255, 255, 0), TG::Color32(255, 0, 255), TG::Color32(0, 255, 255));
+    m_cube1.SetColor(ln::Color32(0, 0, 255), ln::Color32(0, 255, 0), ln::Color32(255, 0, 0), 
+        ln::Color32(255, 255, 0), ln::Color32(255, 0, 255), ln::Color32(0, 255, 255));
 
     m_cube2.Init();
     m_cube2.SetSize(0.5);
-    m_cube2.SetColor(TG::Color32(0, 0, 255), TG::Color32(0, 255, 0), TG::Color32(255, 0, 0), 
-        TG::Color32(255, 255, 0), TG::Color32(255, 0, 255), TG::Color32(0, 255, 255));
+    m_cube2.SetColor(ln::Color32(0, 0, 255), ln::Color32(0, 255, 0), ln::Color32(255, 0, 0), 
+        ln::Color32(255, 255, 0), ln::Color32(255, 0, 255), ln::Color32(0, 255, 255));
 }
 
 void PickForm::OnSize(int w, int h)
@@ -128,7 +128,7 @@ void PickForm::OnMouseDown(GLMouseEventArgsPtr args)
 void PickForm::OnMouseMove(GLMouseEventArgsPtr args)
 {
     if (m_drag.IsMouseDown()) {
-        TG::PointInt p = m_drag.MouseMove(args->m_location);
+        ln::PointInt p = m_drag.MouseMove(args->m_location);
         //double a = asin(p.m_y * 1.6 / 3.3);
         //printf("Mouse: %d\n", a);
 

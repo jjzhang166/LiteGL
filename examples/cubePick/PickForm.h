@@ -1,7 +1,7 @@
 #pragma once
 #include "GLForm.h"
 #include "GLCube.h"
-#include "LnUI/LDragAssist.h"
+#include "LnCore/LDragAssist.h"
 
 class PickForm : public GLForm
 {
