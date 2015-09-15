@@ -124,7 +124,9 @@ void ShaderForm::OnCreate()
     printf("after: %d \n", __glewCreateShader);
 
     ln::LBitmap bmp;
-    bmp.ReadBmp(L"d:\\512.bmp");
+    //bmp.ReadBmp(L"d:\\512.bmp");
+    bmp.ReadJpeg(L"D:\\aiqt.jpg");
+    bmp.Conver8To32();
     int w = bmp.Width();
     int h = bmp.Height();
 
@@ -159,7 +161,8 @@ void ShaderForm::OnCreate()
     glTexParameteri(GL_TEXTURE_RECTANGLE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_RECTANGLE, GL_TEXTURE_WRAP_S, GL_CLAMP);
     glTexParameteri(GL_TEXTURE_RECTANGLE, GL_TEXTURE_WRAP_T, GL_CLAMP);
-    glTexImage2D(GL_TEXTURE_RECTANGLE,0, GL_RED, w, h, 0, GL_RED, GL_UNSIGNED_BYTE, 0);
+    //glTexImage2D(GL_TEXTURE_RECTANGLE,0, GL_RED, w, h, 0, GL_RED, GL_UNSIGNED_BYTE, 0);
+    glTexImage2D(GL_TEXTURE_RECTANGLE, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
 
     glGenFramebuffers(1,&FBObj);
     glBindFramebuffer(GL_FRAMEBUFFER, FBObj);
@@ -171,24 +174,27 @@ void ShaderForm::OnCreate()
     glTexParameteri(GL_TEXTURE_RECTANGLE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_RECTANGLE, GL_TEXTURE_WRAP_S, GL_CLAMP);
     glTexParameteri(GL_TEXTURE_RECTANGLE, GL_TEXTURE_WRAP_T, GL_CLAMP);
-    glTexImage2D(GL_TEXTURE_RECTANGLE, 0, GL_RED, w, h, 0, GL_RED, GL_UNSIGNED_BYTE, 0);
+    //glTexImage2D(GL_TEXTURE_RECTANGLE, 0, GL_RED, w, h, 0, GL_RED, GL_UNSIGNED_BYTE, 0);
+    glTexImage2D(GL_TEXTURE_RECTANGLE, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
 
     AddShaderPrograme();
 
     //////////////////////////////////////////////////////////////////////////
     
-	glTexSubImage2D(GL_TEXTURE_RECTANGLE, 0, 0, 0, w, h, GL_RED, GL_UNSIGNED_BYTE, bmp.Pixel());
+	//glTexSubImage2D(GL_TEXTURE_RECTANGLE, 0, 0, 0, w, h, GL_RED, GL_UNSIGNED_BYTE, bmp.Pixel());
+    glTexSubImage2D(GL_TEXTURE_RECTANGLE, 0, 0, 0, w, h, GL_RGBA, GL_UNSIGNED_BYTE, bmp.Pixel());
 
     glCallList(1);
     glFinish();
 
-    unsigned char *re = new unsigned char[w * h];
+    unsigned char *re = new unsigned char[w * h * 4];
 
-    glReadPixels(0, 0, w, h, GL_RED, GL_UNSIGNED_BYTE, re);
+    //glReadPixels(0, 0, w, h, GL_RED, GL_UNSIGNED_BYTE, re);
+    glReadPixels(0, 0, w, h, GL_RGBA, GL_UNSIGNED_BYTE, re);
 
 
-    ln::LBitmap r(w, h, 1, re);
-    r.Conver8To32();
+    ln::LBitmap r(w, h, 4, re);
+    //r.Conver8To32();
     r.WriteBmp(L"d:\\z_gra.bmp");
 
 }

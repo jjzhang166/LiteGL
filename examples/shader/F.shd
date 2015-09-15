@@ -5,6 +5,8 @@ uniform mat3 iOffset;
 uniform mat3 jOffset;
 uniform mat3 Coff;
 
+out vec4 out_color;
+
 void main(void)
 {
     vec4 temp = vec4(0.0, 0.0, 0.0, 1.0);
@@ -29,6 +31,7 @@ void main(void)
     }
 
 
-    gl_FragColor = temp;
+    //gl_FragColor = temp;
+    //out_color = temp;
 }
 
