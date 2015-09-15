@@ -12,103 +12,10 @@ TextureForm::~TextureForm(void)
 {
 }
 
-char *textFileRead(char *fn)
-{
-	FILE *fp;
-	char *content = NULL;
-	int count=0;
-
-	if (fn != NULL)
-	{
-		fp = fopen(fn, "rt");
-		if (fp != NULL)
-		{
-			fseek(fp, 0, SEEK_END);
-			count = ftell(fp);
-			rewind(fp);
-			if (count > 0)
-			{
-				content = new char[sizeof(char)*(count+1)];
-				count = fread(content, sizeof(char), count, fp);
-				content[count] = '\0';
-			}
-			fclose(fp);
-		}
-	}
-	return content;
-}
-
-void AddShaderPrograme(void)
-{
-    GLuint VShader;			// ¶¥µãshader
-    GLuint FShader;			// Æ¬¶Ïshader
-    GLuint ShaderPrograme;	// shader³ÌÐò
-    char* VShaderCode;		// ¶¥µãshader´úÂë
-    char* FShaderCode;      // Æ¬¶Ïshader´úÂë
-
-    __glewCreateShader;
-    VShader = glCreateShader(GL_VERTEX_SHADER);
-    FShader = glCreateShader(GL_FRAGMENT_SHADER);
-
-    VShaderCode = textFileRead("V.shd");
-    FShaderCode = textFileRead("F.shd");
-    glShaderSource(VShader, 1, (const char**)&VShaderCode, NULL);
-    glShaderSource(FShader, 1, (const char**)&FShaderCode, NULL);
-    delete VShaderCode;
-    delete FShaderCode;
-
-    glCompileShader(VShader);
-    //printInfoLog(1, VShader);
-    GLint vertCompiled;
-    glGetShaderiv(VShader, GL_COMPILE_STATUS, &vertCompiled);
-    if(vertCompiled != 1)
-    {
-        //Form1->Memo1->Lines->Add("");
-        printf("¶¥µãShader±àÒë´íÎó");
-    }
-
-    glCompileShader(FShader);
-    //printInfoLog(2, FShader);
-    GLint fragCompiled;
-    glGetShaderiv(VShader, GL_COMPILE_STATUS, &fragCompiled);
-    if(fragCompiled != 1)
-    {
-        //Form1->Memo1->Lines->Add("");
-        printf("Æ¬ÔªShader±àÒë´íÎó");
-    }
-
-    ShaderPrograme = glCreateProgram();
-    glAttachShader(ShaderPrograme, VShader);
-    glAttachShader(ShaderPrograme, FShader);
-
-    glLinkProgram(ShaderPrograme);
-    //printInfoLog(3, ShaderPrograme);
-    GLint progLinked;
-    glGetProgramiv(ShaderPrograme, GL_LINK_STATUS, &progLinked);
-    if(progLinked != 1)
-    {
-        //Form1->Memo1->Lines->Add("");
-        printf("Á´½ÓÆ÷Á´½Ó´íÎó");
-    }
-
-    glUseProgram(ShaderPrograme);
-
-    // ´«µÝShader±äÁ¿
-    glUniform1i(glGetUniformLocation(ShaderPrograme, "DataTexture"), 0);
-    float iOffset[9] = {-1.0, -1.0, -1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0};
-    glUniformMatrix3fv(glGetUniformLocation(ShaderPrograme, "iOffset"), 1, false, iOffset);
-    float jOffset[9] = {-1.0, 0.0, 1.0, -1.0, 0.0, 1.0, -1.0, 0.0, 1.0};
-    glUniformMatrix3fv(glGetUniformLocation(ShaderPrograme, "jOffset"), 1, false, jOffset);
-    float Coff[9] = {-1.0, -1.0, -1.0, -1.0, 8.0, -1.0, -1.0, -1.0, -1.0};
-    glUniformMatrix3fv(glGetUniformLocation(ShaderPrograme, "Coff"), 1, false, Coff);
-} 
 
 void TextureForm::OnCreate()
 {
     //printf("before: %d \n", __glewCreateShader);
-    GLenum err = glewInit();
-    printf("after: %d \n", __glewCreateShader);
-    AddShaderPrograme();
 
 
     {

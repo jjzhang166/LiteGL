@@ -13,6 +13,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cubePick", "examples\cubePi
 		{FA0B87F5-223C-48A0-B5FE-4119672ABAA6} = {FA0B87F5-223C-48A0-B5FE-4119672ABAA6}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shader", "examples\shader\shader.vcproj", "{7A2C9E72-F54A-41F6-ABFC-CFBBA7356A4B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E9329D4B-4583-42C4-8109-5187FA356D19} = {E9329D4B-4583-42C4-8109-5187FA356D19}
+		{FA0B87F5-223C-48A0-B5FE-4119672ABAA6} = {FA0B87F5-223C-48A0-B5FE-4119672ABAA6}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LnImg", "..\LiteNice\LnImg\LnImg.vcproj", "{E9329D4B-4583-42C4-8109-5187FA356D19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -31,6 +39,14 @@ Global
 		{54C0C419-9017-4048-A73C-65BD346E74F6}.Debug|Win32.Build.0 = Debug|Win32
 		{54C0C419-9017-4048-A73C-65BD346E74F6}.Release|Win32.ActiveCfg = Release|Win32
 		{54C0C419-9017-4048-A73C-65BD346E74F6}.Release|Win32.Build.0 = Release|Win32
+		{7A2C9E72-F54A-41F6-ABFC-CFBBA7356A4B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7A2C9E72-F54A-41F6-ABFC-CFBBA7356A4B}.Debug|Win32.Build.0 = Debug|Win32
+		{7A2C9E72-F54A-41F6-ABFC-CFBBA7356A4B}.Release|Win32.ActiveCfg = Release|Win32
+		{7A2C9E72-F54A-41F6-ABFC-CFBBA7356A4B}.Release|Win32.Build.0 = Release|Win32
+		{E9329D4B-4583-42C4-8109-5187FA356D19}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E9329D4B-4583-42C4-8109-5187FA356D19}.Debug|Win32.Build.0 = Debug|Win32
+		{E9329D4B-4583-42C4-8109-5187FA356D19}.Release|Win32.ActiveCfg = Release|Win32
+		{E9329D4B-4583-42C4-8109-5187FA356D19}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
