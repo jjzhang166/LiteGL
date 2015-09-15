@@ -19,14 +19,14 @@ bool GLEnvironment::InitGL(HWND wnd)
 {
 	m_wnd = wnd;
 	
-	/*PIXELFORMATDESCRIPTOR pfd;
+	PIXELFORMATDESCRIPTOR pfd;
 	pfd.nSize      = sizeof(PIXELFORMATDESCRIPTOR);
 	pfd.nVersion   = 1;
 	pfd.dwFlags    = PFD_DRAW_TO_WINDOW |PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER;
 	pfd.iPixelType = PFD_TYPE_RGBA;
 	pfd.cColorBits = 16;
-	pfd.cDepthBits = 16;*/
-    PIXELFORMATDESCRIPTOR pfd = {
+	pfd.cDepthBits = 16;
+    /*PIXELFORMATDESCRIPTOR pfd = {
         sizeof(PIXELFORMATDESCRIPTOR),
         1,
         PFD_SUPPORT_OPENGL,
@@ -44,7 +44,7 @@ bool GLEnvironment::InitGL(HWND wnd)
         0,
         0,
         0
-    };
+    };*/
 	
 	m_dc = ::GetDC(m_wnd);
 	GLuint pixel_format = ChoosePixelFormat(m_dc, &pfd);
@@ -55,7 +55,7 @@ bool GLEnvironment::InitGL(HWND wnd)
 	RECT rect;
     ::GetClientRect(m_wnd, &rect);
 
-    /*if (m_app_style == GLApp2D) {
+    if (m_app_style == GLApp2D) {
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
 
@@ -72,7 +72,7 @@ bool GLEnvironment::InitGL(HWND wnd)
         glLoadIdentity();
         glFrustum(-1.0, 1.0, -1.0, 1.0, -20, 20.0);
         glMatrixMode(GL_MODELVIEW);
-    }*/
+    }
 	
 	return GL_NO_ERROR == glGetError();
 }
