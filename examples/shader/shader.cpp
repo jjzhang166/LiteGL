@@ -4,38 +4,6 @@
 #include "LnWin/LConsole.hpp"
 #include "LnImg/LBitmap.h"
 
-HWND GetConsoleHwnd(void)
-{
-    const static int MY_BUFSIZE = 1024; // Buffer size for console window titles.
-    HWND hwndFound;         // This is what is returned to the caller.
-    char pszNewWindowTitle[MY_BUFSIZE]; // Contains fabricated
-    char pszOldWindowTitle[MY_BUFSIZE]; // Contains original
-
-    GetConsoleTitleA(pszOldWindowTitle, MY_BUFSIZE);
-
-    sprintf(pszNewWindowTitle, "%d/%d",
-        GetTickCount(),
-        GetCurrentProcessId());
-
-    SetConsoleTitleA(pszNewWindowTitle);
-
-    // Ensure window title has been updated.
-
-    Sleep(40);
-
-    // Look for NewWindowTitle.
-
-    hwndFound=FindWindowA(NULL, pszNewWindowTitle);
-
-    // Restore original window title.
-
-    SetConsoleTitleA(pszOldWindowTitle);
-
-    return(hwndFound);
-}
-
-
-
 int WinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance, __in_opt LPSTR lpCmdLine, __in int nShowCmd)
 {
     ln::LBitmap bmp;

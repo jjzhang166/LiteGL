@@ -19,18 +19,15 @@ void main(void)
        temp += Coff[2][1] * texture2DRect(DataTexture, gl_TexCoord[0].xy + vec2(iOffset[2][1], jOffset[2][1]));
        temp += Coff[2][2] * texture2DRect(DataTexture, gl_TexCoord[0].xy + vec2(iOffset[2][2], jOffset[2][2]));*/
 
-    for(int k=0; k<1; k++)
+
+    for(int i=0; i<3; i++)
     {
-
-        for(int i=0; i<3; i++)
+        for(int j=0; j<3; j++)
         {
-            for(int j=0; j<3; j++)
-            {
-                temp += Coff[i][j] * texture2DRect(DataTexture, gl_FragCoord.xy + vec2(iOffset[i][j], jOffset[i][j]));
-            }
+            temp += Coff[i][j] * texture2DRect(DataTexture, gl_FragCoord.xy + vec2(iOffset[i][j], jOffset[i][j]));
         }
-
     }
+
 
     gl_FragColor = temp;
 }

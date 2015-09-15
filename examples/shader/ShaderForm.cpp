@@ -88,17 +88,24 @@ void AddShaderPrograme(void)
 // ´«µÝShader±äÁ¿
 	glUniform1i(glGetUniformLocation(ShaderPrograme, "DataTexture"), 0);
 
+    // -1 0 1
+    // -1 0 1
+    // -1 0 1
 	float iOffset[9] = {-1.0, -1.0, -1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0};
 	glUniformMatrix3fv(glGetUniformLocation(ShaderPrograme, "iOffset"), 1, false, iOffset);
 
+    // -1 -1 -1
+    //  0  0  0
+    //  1  1  1
 	float jOffset[9] = {-1.0, 0.0, 1.0, -1.0, 0.0, 1.0, -1.0, 0.0, 1.0};
 	glUniformMatrix3fv(glGetUniformLocation(ShaderPrograme, "jOffset"), 1, false, jOffset);
 
+    // -1 -1 -1
+    // -1  8 -1
+    // -1 -1 -1
 	float Coff[9] = {-1.0, -1.0, -1.0, -1.0, 8.0, -1.0, -1.0, -1.0, -1.0};
 	glUniformMatrix3fv(glGetUniformLocation(ShaderPrograme, "Coff"), 1, false, Coff);
 }
-
-
 
 ShaderForm::ShaderForm(HINSTANCE hin)
 : GLForm(hin)
