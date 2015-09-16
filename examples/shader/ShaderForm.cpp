@@ -135,7 +135,7 @@ void ShaderForm::OnCreate()
     gluOrtho2D(0.0, 1.0, 0.0, 1.0);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-	glViewport(0, 0, w, h);  //这里的gl设置不可缺少
+	glViewport(0, 0, w*0.5, h*0.5);  //这里的gl设置不可缺少
 
     glNewList(1, GL_COMPILE_AND_EXECUTE);
     {
