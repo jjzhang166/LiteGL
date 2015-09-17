@@ -11,7 +11,6 @@ int WinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance, __in_op
     bmp.Conver8To32();
     bmp.WriteBmp(L"D:\\z_bit8.bmp");*/
 
-
     ShaderForm frm(hInstance);
     frm.SetAppStyle(GLApp2D);
     GLAppRun(&frm);
