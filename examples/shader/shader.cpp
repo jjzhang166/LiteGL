@@ -6,10 +6,10 @@
 
 int WinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance, __in_opt LPSTR lpCmdLine, __in int nShowCmd)
 {
-    ln::LBitmap bmp;
+    /*ln::LBitmap bmp;
     bmp.ReadBmp(L"D:\\512.bmp");
     bmp.Conver8To32();
-    bmp.WriteBmp(L"D:\\z_bit8.bmp");
+    bmp.WriteBmp(L"D:\\z_bit8.bmp");*/
 
 
     ShaderForm frm(hInstance);

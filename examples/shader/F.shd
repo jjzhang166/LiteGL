@@ -1,13 +1,10 @@
 #extension GL_ARB_texture_rectangle : enable
 
-//uniform sampler2DRect DataTexture;
-uniform samplerRect DataTexture;
-smooth in vect2 vVaryingTexCoord;
+uniform sampler2DRect DataTexture;
 uniform mat3 iOffset;
 uniform mat3 jOffset;
 uniform mat3 Coff;
 
-//out vec4 out_color;
 
 void main(void)
 {
@@ -24,15 +21,13 @@ void main(void)
        temp += Coff[2][2] * texture2DRect(DataTexture, gl_TexCoord[0].xy + vec2(iOffset[2][2], jOffset[2][2]));*/
 
 
-    /*for(int i=0; i<3; i++)
+    for(int i=0; i<3; i++)
     {
         for(int j=0; j<3; j++)
         {
             temp += Coff[i][j] * texture2DRect(DataTexture, gl_FragCoord.xy + vec2(iOffset[i][j], jOffset[i][j]));
         }
     }
-    gl_FragColor = temp;*/
-    gl_FragColor = texture(DataTexture, vVaryingTexCoord);
-    //out_color = temp;
+    gl_FragColor = temp;
 }
 
