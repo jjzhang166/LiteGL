@@ -19,16 +19,15 @@ char *textFileRead(char *fn)
 	char *content = NULL;
 	int count=0;
 
-	if (fn != NULL)
-	{
+	if (fn != NULL) {
 		fp = fopen(fn, "rt");
-		if (fp != NULL)
-		{
+
+		if (fp != NULL) {
 			fseek(fp, 0, SEEK_END);
 			count = ftell(fp);
 			rewind(fp);
-			if (count > 0)
-			{
+
+			if (count > 0) {
 				content = new char[sizeof(char)*(count+1)];
 				count = fread(content, sizeof(char), count, fp);
 				content[count] = '\0';
@@ -55,8 +54,8 @@ void AddShaderPrograme(void)
 	//printInfoLog(1, VShader);
 	GLint vertCompiled;
 	glGetShaderiv(VShader, GL_COMPILE_STATUS, &vertCompiled);
-	if(vertCompiled != 1)
-	{
+
+	if(vertCompiled != 1) {
 		//Form1->Memo1->Lines->Add("¶¥µãShader±àÒë´íÎó");
 	}
 
@@ -64,8 +63,8 @@ void AddShaderPrograme(void)
 	//printInfoLog(2, FShader);
 	GLint fragCompiled;
 	glGetShaderiv(VShader, GL_COMPILE_STATUS, &fragCompiled);
-	if(fragCompiled != 1)
-	{
+
+	if(fragCompiled != 1) {
 		//Form1->Memo1->Lines->Add("Æ¬ÔªShader±àÒë´íÎó");
 	}
 
@@ -78,8 +77,8 @@ void AddShaderPrograme(void)
 	//printInfoLog(3, ShaderPrograme);
 	GLint progLinked;
 	glGetProgramiv(ShaderPrograme, GL_LINK_STATUS, &progLinked);
-	if(progLinked != 1)
-	{
+
+	if(progLinked != 1) {
 		//Form1->Memo1->Lines->Add("Á´½ÓÆ÷Á´½Ó´íÎó");
 	}
 
@@ -155,7 +154,7 @@ void ShaderForm::OnCreate()
     glEndList();
 
 
-    glGenTextures (1, &TexDestination);
+    glGenTextures(1, &TexDestination);
     glBindTexture(GL_TEXTURE_RECTANGLE, TexDestination);
     glTexParameteri(GL_TEXTURE_RECTANGLE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_RECTANGLE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
@@ -168,7 +167,7 @@ void ShaderForm::OnCreate()
     glBindFramebuffer(GL_FRAMEBUFFER, FBObj);
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_RECTANGLE, TexDestination, 0);
 
-    glGenTextures (1, &TexSource);
+    glGenTextures(1, &TexSource);
     glBindTexture(GL_TEXTURE_RECTANGLE, TexSource);
     glTexParameteri(GL_TEXTURE_RECTANGLE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_RECTANGLE, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
@@ -196,5 +195,4 @@ void ShaderForm::OnCreate()
     ln::LBitmap r(w, h, 4, re);
     //r.Conver8To32();
     r.WriteBmp(L"d:\\z_gra.bmp");
-
 }
