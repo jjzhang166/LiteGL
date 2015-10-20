@@ -64,7 +64,7 @@ void AddShaderPrograme(void)
 	GLint fragCompiled;
 	glGetShaderiv(VShader, GL_COMPILE_STATUS, &fragCompiled);
 
-	if(fragCompiled != 1) {
+	if (fragCompiled != 1) {
 		//Form1->Memo1->Lines->Add("Æ¬ÔªShader±àÒë´íÎó");
 	}
 
