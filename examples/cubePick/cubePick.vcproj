@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\include;E:\cpp_app\LiteNice\include;D:\work\TGGraphics\include"
+				AdditionalIncludeDirectories="..\..\include;..\..\..\LiteNice\include;..\..\..\boost_1_55_0"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -62,9 +62,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="opengl32.lib glu32.lib LnCore_mtd.lib LnUI_mtd.lib LnWin_mtd.lib TGGraphics_mtd.lib"
+				AdditionalDependencies="opengl32.lib glu32.lib LnCore_mtd.lib LnUI_mtd.lib LnWin_mtd.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="..\..\lib;D:\work\TGGraphics\lib;E:\cpp_app\LiteNice\lib"
+				AdditionalLibraryDirectories="..\..\lib;..\..\..\LiteNice\lib"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"

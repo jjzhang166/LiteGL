@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="E:\cpp_app\LiteNice\include;D:\work\TGGraphics\include;include"
+				AdditionalIncludeDirectories="..\LiteNice\include;include;..\boost_1_55_0"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"

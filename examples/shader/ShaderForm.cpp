@@ -124,7 +124,7 @@ void ShaderForm::OnCreate()
 
     ln::LBitmap bmp;
     //bmp.ReadBmp(L"d:\\512.bmp");
-    bmp.ReadJpeg(L"D:\\aiqt.jpg");
+    bmp.ReadJpeg(L"D:\\g.jpg");
     //bmp.Conver8To32();
     int w = bmp.Width();
     int h = bmp.Height();
