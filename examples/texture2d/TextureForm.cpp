@@ -21,14 +21,14 @@ void TextureForm::OnCreate()
     {
         int width, height;
         unsigned char *data;
-        GLLoadImage(L"D:\\sh.png", &width, &height, data);
+        GLLoadImage(L"D:\\2.png", &width, &height, data);
         m_img1.Init(width, height, data);
         delete data;
     }
     {
         int width, height;
         unsigned char *data;
-        GLLoadImage(L"D:\\aiqt.jpg", &width, &height, data);
+        GLLoadImage(L"D:\\g.jpg", &width, &height, data);
         m_img2.Init(width, height, data);
         delete data;
     }
