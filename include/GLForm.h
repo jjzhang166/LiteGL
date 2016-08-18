@@ -24,8 +24,7 @@ class GLMouseEventArgs
 public:
     GLMouseEventArgs(GLMouseButtons btn, int clicks, int delta, int x, int y, 
         bool is_shift, bool is_ctrl, bool is_alt)
-        :
-    m_button(btn),
+        : m_button(btn),
         m_clicks(clicks),
         m_delta(delta),
         m_location(x, y),
