@@ -11,21 +11,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FA0B87F5-223C-48A0-B5FE-4119672ABAA6}</ProjectGuid>
-    <RootNamespace>TestOpenGL</RootNamespace>
-    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{1AE4E979-0D35-4747-BF8E-DD60358F49DB}</ProjectGuid>
+    <RootNamespace>freeglut</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -43,66 +44,94 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <IntDir>$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <CodeAnalysisRuleAssemblies />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <IntDir>$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <CodeAnalysisRuleAssemblies />
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
+      <AdditionalOptions>/D "_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES" %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>include;..\boost_1_55_0;..\LiteNice\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;_USRDLL;FREEGLUT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
     <Lib>
-      <OutputFile>lib\LiteGL_mtd.lib</OutputFile>
+      <OutputFile>..\..\lib\freeglut_mtd.lib</OutputFile>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>E:\cpp_app\LiteNice\include;D:\work\TGGraphics\include;include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_USRDLL;FREEGLUT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
     <Lib>
-      <OutputFile>lib\LiteGL_mt.lib</OutputFile>
+      <OutputFile>..\..\lib\freeglut_mt.lib</OutputFile>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\GLCube.cpp" />
-    <ClCompile Include="src\GLEnvironment.cpp" />
-    <ClCompile Include="src\glew.c" />
-    <ClCompile Include="src\glForm.cpp" />
-    <ClCompile Include="src\GLGeometry.cpp" />
-    <ClCompile Include="src\GLUtility.cpp" />
-    <ClCompile Include="src\GLVertexBuffer.cpp" />
-    <ClCompile Include="src\GLWidget.cpp" />
-    <ClCompile Include="src\Matrix3d.cpp" />
+    <ClCompile Include="..\src\freeglut_callbacks.c" />
+    <ClCompile Include="..\src\freeglut_cursor.c" />
+    <ClCompile Include="..\src\freeglut_display.c" />
+    <ClCompile Include="..\src\freeglut_ext.c" />
+    <ClCompile Include="..\src\freeglut_font.c" />
+    <ClCompile Include="..\src\freeglut_font_data.c" />
+    <ClCompile Include="..\src\freeglut_gamemode.c" />
+    <ClCompile Include="..\src\freeglut_geometry.c" />
+    <ClCompile Include="..\src\freeglut_glutfont_definitions.c" />
+    <ClCompile Include="..\src\freeglut_init.c" />
+    <ClCompile Include="..\src\freeglut_input_devices.c" />
+    <ClCompile Include="..\src\freeglut_joystick.c" />
+    <ClCompile Include="..\src\freeglut_main.c" />
+    <ClCompile Include="..\src\freeglut_menu.c" />
+    <ClCompile Include="..\src\freeglut_misc.c" />
+    <ClCompile Include="..\src\freeglut_overlay.c" />
+    <ClCompile Include="..\src\freeglut_spaceball.c" />
+    <ClCompile Include="..\src\freeglut_state.c" />
+    <ClCompile Include="..\src\freeglut_stroke_mono_roman.c" />
+    <ClCompile Include="..\src\freeglut_stroke_roman.c" />
+    <ClCompile Include="..\src\freeglut_structure.c" />
+    <ClCompile Include="..\src\freeglut_teapot.c" />
+    <ClCompile Include="..\src\freeglut_videoresize.c" />
+    <ClCompile Include="..\src\freeglut_window.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\GLCube.h" />
-    <ClInclude Include="include\GLEnvironment.h" />
-    <ClInclude Include="include\GLForm.h" />
-    <ClInclude Include="include\GLGeometry.h" />
-    <ClInclude Include="include\GLUtility.h" />
-    <ClInclude Include="include\GLVertexBuffer.h" />
-    <ClInclude Include="include\GLWidget.h" />
-    <ClInclude Include="include\GL\glew.h" />
-    <ClInclude Include="include\GL\glxew.h" />
-    <ClInclude Include="include\GL\wglew.h" />
-    <ClInclude Include="include\Matrix3d.h" />
+    <None Include="..\src\freeglutdll.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\GL\freeglut.h" />
+    <ClInclude Include="..\include\GL\freeglut_ext.h" />
+    <ClInclude Include="..\include\GL\freeglut_std.h" />
+    <ClInclude Include="..\include\GL\glut.h" />
+    <ClInclude Include="..\src\freeglut_internal.h" />
+    <ClInclude Include="..\src\freeglut_teapot_data.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\freeglut.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

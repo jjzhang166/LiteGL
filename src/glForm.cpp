@@ -33,17 +33,18 @@ void GLAppRun(GLForm *form)
 }
 
 GLForm::GLForm(HINSTANCE hin)
-: m_instance(hin),
-m_hwnd(NULL),
-m_start_width(510),
-m_start_height(500),
-m_class_name(L"GLForm"),
-m_title_text(L"GLForm"),
-m_icon(0),
-m_is_shift_down(false),
-m_is_ctrl_down(false),
-m_is_alt_down(false),
-m_app_style(GLApp3D)
+:
+	m_instance(hin),
+	m_hwnd(NULL),
+	m_start_width(510),
+	m_start_height(500),
+	m_class_name(L"GLForm"),
+	m_title_text(L"GLForm"),
+	m_icon(0),
+	m_is_shift_down(false),
+	m_is_ctrl_down(false),
+	m_is_alt_down(false),
+	m_app_style(GLApp3D)
 {
     m_gl_env = new GLEnvironment;
 }
@@ -218,9 +219,11 @@ LRESULT GLForm::WndProc(UINT message, WPARAM wp, LPARAM lp)
         case WM_DESTROY:
             {
                 //
-                WinClose();
-                OnClose();
-                PostQuitMessage(0);
+                //WinClose();
+                //OnClose();
+				//DestroyWindow(m_hwnd);
+                PostQuitMessage(1);
+				break;
             }
 
         default:
@@ -362,7 +365,7 @@ void GLForm::KillTimer(int id)
 
 void GLForm::WinClose()
 {
-    delete m_gl_env;
+    //delete m_gl_env;
 }
 
 void GLForm::OnDraw()

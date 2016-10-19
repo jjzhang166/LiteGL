@@ -84,7 +84,7 @@ void AddShaderPrograme(void)
 
 	glUseProgram(ShaderPrograme);
 
-// 传递Shader变量
+	// 传递Shader变量
 	glUniform1i(glGetUniformLocation(ShaderPrograme, "DataTexture"), 0);
 
     // -1 0 1
@@ -124,7 +124,7 @@ void ShaderForm::OnCreate()
 
     ln::LBitmap bmp;
     //bmp.ReadBmp(L"d:\\512.bmp");
-    bmp.ReadJpeg(L"D:\\g.jpg");
+    bmp.ReadJpeg(L"D:\\p.jpg");
     //bmp.Conver8To32();
     int w = bmp.Width();
     int h = bmp.Height();
@@ -152,6 +152,7 @@ void ShaderForm::OnCreate()
         glEnd();
     }
     glEndList();
+	
 
 
     glGenTextures(1, &TexDestination);
