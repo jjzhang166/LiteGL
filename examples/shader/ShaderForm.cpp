@@ -153,7 +153,8 @@ void ShaderForm::OnCreate()
     }
     glEndList();
 	
-
+	//glMemoryBarrierEXT(GL_UNIFORM_BARRIER_BIT_EXT);
+	glTextureBarrierNV();
 
     glGenTextures(1, &TexDestination);
     glBindTexture(GL_TEXTURE_RECTANGLE, TexDestination);
@@ -168,6 +169,9 @@ void ShaderForm::OnCreate()
     glBindFramebuffer(GL_FRAMEBUFFER, FBObj);
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_RECTANGLE, TexDestination, 0);
 
+	//glMemoryBarrierEXT(GL_UNIFORM_BARRIER_BIT_EXT);
+	glTextureBarrierNV();
+
     glGenTextures(1, &TexSource);
     glBindTexture(GL_TEXTURE_RECTANGLE, TexSource);
     glTexParameteri(GL_TEXTURE_RECTANGLE, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
@@ -179,12 +183,16 @@ void ShaderForm::OnCreate()
 
     AddShaderPrograme();
 
+	//glMemoryBarrierEXT(GL_UNIFORM_BARRIER_BIT_EXT);
+	glTextureBarrierNV();
     //////////////////////////////////////////////////////////////////////////
     
 	//glTexSubImage2D(GL_TEXTURE_RECTANGLE, 0, 0, 0, w, h, GL_RED, GL_UNSIGNED_BYTE, bmp.Pixel());
     glTexSubImage2D(GL_TEXTURE_RECTANGLE, 0, 0, 0, w, h, GL_RGBA, GL_UNSIGNED_BYTE, bmp.Pixel());
 
     glCallList(1);
+	//glMemoryBarrierEXT(GL_UNIFORM_BARRIER_BIT_EXT);
+	glTextureBarrierNV();
     glFinish();
 
     unsigned char *re = new unsigned char[w * h * 4];
@@ -195,5 +203,5 @@ void ShaderForm::OnCreate()
 
     ln::LBitmap r(w, h, 4, re);
     //r.Conver8To32();
-    r.WriteBmp(L"d:\\z_gra.bmp");
+    r.WriteBmp(L"d:\\img\\4.bmp");
 }
