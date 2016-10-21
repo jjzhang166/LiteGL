@@ -4,7 +4,8 @@
 #include "GLUtility.h"
 
 TextureForm::TextureForm(HINSTANCE hin)
-: GLForm(hin)
+	:
+	GLForm(hin)
 {
 }
 

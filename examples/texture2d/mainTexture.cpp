@@ -3,7 +3,6 @@
 #include "LnWin/LConsole.hpp"
 #include "TextureForm.h"
 
-
 int WinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance, __in_opt LPSTR lpCmdLine, __in int nShowCmd)
 {
     TextureForm frm(hInstance);
@@ -12,9 +11,3 @@ int WinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance, __in_op
 
     return 0;
 }
-
-
-
-
-
-

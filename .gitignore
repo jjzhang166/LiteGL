@@ -1,37 +1,29 @@
-# Compiled Object files
-*.slo
-*.lo
+# Object files
 *.o
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-
-# Compiled Static libraries
-*.lai
-*.la
+# Libraries
+*.lib
 *.a
 
-*.user
-*.suo
-*.ncb
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
 
+# Executables
+*.exe
+*.out
+*.app
 
-
-**/debug/
-**/release
-/Debug
-/Release
-
-*.ini
-*.sdf
-*.opensdf
+# vs2015
 *.db
 *.opendb
 *.ncb
 *.suo
 *.user
 *.aps
-*.filters
 **/debug/
 **/release/
+**/libs/
+**/x64/

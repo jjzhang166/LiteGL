@@ -19,7 +19,7 @@ bool GLEnvironment::InitGL(HWND wnd)
 {
 	m_wnd = wnd;
 	
-	PIXELFORMATDESCRIPTOR pfd;
+	PIXELFORMATDESCRIPTOR pfd = { 0 };
 	pfd.nSize      = sizeof(PIXELFORMATDESCRIPTOR);
 	pfd.nVersion   = 1;
 	pfd.dwFlags    = PFD_DRAW_TO_WINDOW |PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER;

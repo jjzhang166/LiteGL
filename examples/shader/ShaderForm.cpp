@@ -107,7 +107,8 @@ void AddShaderPrograme(void)
 }
 
 ShaderForm::ShaderForm(HINSTANCE hin)
-: GLForm(hin)
+	:
+	GLForm(hin)
 {
 
 }
@@ -119,6 +120,7 @@ ShaderForm::~ShaderForm(void)
 
 void ShaderForm::OnCreate()
 {
+	return;
     GLenum err = glewInit();
     printf("after: %d \n", __glewCreateShader);
 
