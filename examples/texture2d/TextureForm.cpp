@@ -17,8 +17,6 @@ TextureForm::~TextureForm(void)
 void TextureForm::OnCreate()
 {
     //printf("before: %d \n", __glewCreateShader);
-
-
     {
         int width, height;
         unsigned char *data;

@@ -47,7 +47,7 @@ GLForm::GLForm(HINSTANCE hin)
 	m_app_style(GLApp3D),
 	m_gl_env(0)
 {
-    //m_gl_env = new GLEnvironment;
+    m_gl_env = new GLEnvironment;
 }
 
 LRESULT GLForm::WndProcS(HWND hwnd, UINT message, WPARAM wp, LPARAM lp)
@@ -282,7 +282,7 @@ int GLForm::RegesterForm()
     wcex.cbWndExtra = 0;
     wcex.hInstance = m_instance;
     wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
-    wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW+1);
+    //wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW+1);
     wcex.lpszMenuName = NULL;
     wcex.lpszClassName = m_class_name.c_str();
 
