@@ -259,7 +259,7 @@ void GLForm::Show()
     ::ShowWindow(m_hwnd, SW_SHOW);
     ::UpdateWindow(m_hwnd);
 
-    //OnCreate();
+    OnCreate();
     Repaint();
 }
 

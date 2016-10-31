@@ -92,6 +92,7 @@ void AddShaderPrograme(void)
     // -1 0 1
 	float iOffset[9] = {-1.0, -1.0, -1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0};
 	glUniformMatrix3fv(glGetUniformLocation(ShaderPrograme, "iOffset"), 1, false, iOffset);
+	
 
     // -1 -1 -1
     //  0  0  0
@@ -205,5 +206,5 @@ void ShaderForm::OnCreate()
 
     ln::LBitmap r(w, h, 4, re);
     //r.Conver8To32();
-    r.WriteBmp(L"d:\\img\\4.bmp");
+    r.WriteBmp(L"d:\\4.bmp");
 }
