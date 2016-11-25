@@ -31,7 +31,6 @@ void TextureForm::OnCreate()
         m_img2.Init(width, height, data);
         delete data;
     }
-
 }
 
 void TextureForm::OnDraw()
@@ -79,7 +78,6 @@ void TextureForm::OnKeyDown(GLKeyEventArgsPtr key_args)
             break;
     }
     Repaint();
-   
 }
 
 void TextureForm::OnMouseDown(GLMouseEventArgsPtr args)

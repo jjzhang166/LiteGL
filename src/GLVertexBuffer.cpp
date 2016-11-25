@@ -50,7 +50,7 @@ bool GLVertexBuffer::SetAt(int index, float x, float y, float z, float u, float 
 }
 
 void GLVertexBuffer::DrawVertexBuffer(GLenum eDrawPrimitive_i)
-{    
+{
     glInterleavedArrays(GL_T2F_V3F, 0, m_pVertexBuffer);
     glDrawArrays(eDrawPrimitive_i, 0, m_nCount);
 }
